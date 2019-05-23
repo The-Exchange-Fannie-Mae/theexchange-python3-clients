@@ -1,32 +1,26 @@
+
 # theexchange-python3-clients
 theexchange python3 clients, including code samples to authenticate, authorize, submit requests, and process responses both small and large.
 
 
 ### Installation Instructions:
 
-	Step1: Set the EXCHANGE_CLIENT_HOME environment variable to     $HOME/eXchange:
-		bash --> export EXCHANGE_CLIENT_HOME=~/eXchange
+	Step1: Create a directory into which you can clone this repo; that directory's name will become the value for
+	the EXCHANGE_CLIENT_HOME environment variable.  This document will use $HOME/eXchange as the example name of 
+	this directory.
+	
+	Step2:  Set the EXCHANGE_CLIENT_HOME environment variable to $HOME/eXchange and cd into that directory:
+		bash--> export EXCHANGE_CLIENT_HOME=$HOME/eXchange
+		bash--> cd $EXCHANGE_CLIENT_HOME
 
-	Step2: Untar into your home directory.  This will create the following:
-		$HOME/.aws/credentials -- the client ID for Cognito access
-		$HOME/eXchange
-		$HOME/eXchange/lib -- place where the python clients reside
-		$HOME/eXchange/eXchange-client.properties -- place for Exchange credentials
+	Step3: Use git clone to obtain the client code and config files 
 
-	Step3: Make sure you have python3 on your PATH.  I used /appl/tools/R-3.4.3/bin/python3
-        •	Make sure you have boto3 installed
-        •	Make sure you have set both HTTP_PROXY and HTTPS_PROXY:
-		
-		export HTTP_PROXY=http://zsproxy.fanniemae.com:10479
-		export HTTPS_PROXY=http://zsproxy.fanniemae.com:10479
+	Step4: Make sure you have boto3 installed (so you can interact with AWS Cognito and obtain AUTH tokens):	
 
-	Step4: Edit $HOME/eXchange/eXchange-client.properties so it contains your Exchange user ID and password
+	Step5: Edit $HOME/eXchange/eXchange-client.properties so it contains your Exchange user ID and password
 
-Always invoke the client with "python3".  
-
-
-
-
+	Step6:  Run a smoke test; if successful it will display an AUTH token:
+		bash--> python exchange_client.py
 
 
 | Base Modules | Description |
