@@ -1,4 +1,4 @@
-Installation Instructions
+ Internal Installation Instructions
 	Set the EXCHANGE_CLIENT_HOME environment variable to $HOME/eXchange:
 		bash --> export EXCHANGE_CLIENT_HOME=~/eXchange
 
@@ -10,10 +10,11 @@ Installation Instructions
 
 	Make sure you have python3 on your PATH.  I used /appl/tools/R-3.4.3/bin/python3
 	Make sure you have boto3 installed
-	Make sure you have set both HTTP_PROXY and HTTPS_PROXY:
+	Make sure you have set both HTTP_PROXY and HTTPS_PROXY.  Consult with your systems administrator to get
+	the correct URLs for HTTP_PROXY and HTTPS_PROXY.
 		
-		export HTTP_PROXY=http://zsproxy.fanniemae.com:10479
-		export HTTPS_PROXY=http://zsproxy.fanniemae.com:10479
+		export HTTP_PROXY={your proxy's URL}
+		export HTTPS_PROXY={your proxy's URL}
 
 	Edit $HOME/eXchange/eXchange-client.properties so it contains your Exchange user ID and password
 
