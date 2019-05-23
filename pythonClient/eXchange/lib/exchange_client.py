@@ -28,17 +28,18 @@ def get_auth_token():
     $EXCHANGE_CLIENT_HOME/eXchange-client.properties.'''
 def load_properties():
     #get the eXchange client home directory name or die trying
-    home_directory_name = "C:\\Users\\r0ukcb\\pythonClient\\eXchange"
-    # if home_directory_name == None:
-    #     user_home = os.environ.get('USERPROFILE')
-    #     if user_home == None:
-    #         raise Exception("neither EXCHANGE_CLIENT_HOME nor USERPROFILE defined, cannot read client properties and therefore cannot proceed")
-    #     home_directory_name = user_home + "/eXchange"
+    home_directory_name = os.environ.get('EXCHANGE_CLIENT_HOME')
+    if home_directory_name == None:
+        user_home = os.environ.get('USERPROFILE')
+        if user_home == None:
+            raise Exception("neither EXCHANGE_CLIENT_HOME nor USERPROFILE defined, cannot read client properties and therefore cannot proceed")
+        home_directory_name = user_home + "/eXchange"
     properties_file_name = "eXchange-client.properties"
     properties_file_path = home_directory_name + "/" + properties_file_name
     #open and load the contents of eXchange-client.properties, or die trying
     with open(properties_file_path) as propFile:
         return json.load(propFile)
+
 
 ''' Convenience function to convert a string to a byte array. '''
 def to_byte_array(string_value):
